@@ -1,6 +1,6 @@
 import request from 'superagent'
 import { useQuery } from '@tanstack/react-query' 
-import { QuoteGenerator } from '../../client/models/test'
+import { QuoteGenerator, Quote } from '../../client/models/test'
 
 
 
@@ -32,7 +32,9 @@ function GenerateRandomQuote() {
         <h2>Random Quote For You</h2>
        {randomQuote && ( 
            <> 
-            <p>{randomQuote.quoteText}</p>
+           <div className='typewriter starwars'>
+             <p>{randomQuote.quoteText}</p>           
+           </div>           
           </>
         )
         }     
