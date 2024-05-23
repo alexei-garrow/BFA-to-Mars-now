@@ -1,4 +1,4 @@
- import { useState } from 'react'
+import { useState } from 'react'
 import { getGreeting } from '../apiClient.ts'
 import { useQuery } from '@tanstack/react-query'
 import GenerateQuote from './GenerateQuote.tsx'
@@ -28,7 +28,7 @@ const App = () => {
       )}
       <button onClick={() => setCount(count + 1)}>Click</button>
       <div>
-      <GenerateQuote />
+        <GenerateQuote />
       </div>
     </>
   )
