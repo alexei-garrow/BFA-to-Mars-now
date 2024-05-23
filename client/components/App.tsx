@@ -1,7 +1,7 @@
  import { useState } from 'react'
 import { getGreeting } from '../apiClient.ts'
 import { useQuery } from '@tanstack/react-query'
-import  GenerateQuote from './GenerateQuote.tsx'
+import GenerateQuote from './GenerateQuote.tsx'
 
 //make this look sick!!!!!!!!!!!!!!!
 
