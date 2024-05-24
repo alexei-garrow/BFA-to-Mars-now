@@ -5,7 +5,6 @@ import { useRef } from 'react'
 
 
 const App = () => {
-  const [count, setCount] = useState(0)
   const noButton = useRef(null);
   const [position, setPosition] = useState(null);
 
