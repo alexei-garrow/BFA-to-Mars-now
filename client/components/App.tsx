@@ -1,90 +1,62 @@
- import { useState } from 'react'
-import { getGreeting } from '../apiClient.ts'
-import { useQuery } from '@tanstack/react-query'
+import { useState } from 'react'
 import GenerateQuote from './GenerateQuote.tsx'
+
 import financebro from '../../Images/financebrosef.png'
 
-//make this look sick!!!!!!!!!!!!!!!
+import { useRef } from 'react'
+
+
 
 
 const App = () => {
-  const [count, setCount] = useState(0)
+  const noButton = useRef(null);
+  const [position, setPosition] = useState(null);
 
-  const {
-    data: greeting,
-    isError,
-    isPending,
-  } = useQuery({ queryKey: ['greeting', count], queryFn: getGreeting })
 
-  if (isPending) return <p>Loading...</p>
+  function moveButton() {
+    if (!noButton.current) {
+      return;
+    }
+    const x = Math.random() * (window.innerWidth - noButton.current.offsetWidth);
+    const y =
+      Math.random() * (window.innerHeight - noButton.current.offsetHeight);
+    setPosition({ x, y });
+  }
+
 
   return (
     <>
-      {count}
-      <h1 className="text-3xl font-bold underline">{greeting}</h1>
-      {isError && (
-        <p style={{ color: 'red' }}>
-          There was an error retrieving the greeting.
-        </p>
-      )}
-      <button onClick={() => setCount(count + 1)}>Click</button>
+      <div className="App"></div>
+      <h1>Amazing financial advice</h1>
       <div>
-      <GenerateQuote />
+        <button
+          id="noButton"
+          style={
+            position == null
+              ? {}
+              : {
+                position: "absolute",
+                left: `${position.x}px`,
+                top: `${position.y}px`,
+              }
+          }
+          ref={noButton}
+          onMouseOver={moveButton}
+          onClick={moveButton}
+        >
+          Gerard's Bank Account Details
+        </button>
+      </div>
+      <div>
+        <GenerateQuote />
       </div>
       <div>
         <img src={financebro} alt='finance bro' />
       </div>
     </>
   )
+
 }
 
 export default App
 
-
-// stretch button //
-//export function instead?
-
-
-// import { useRef, useState } from "react";
-
-// export default function App() {
-//   const noButton = useRef(null);
-//   const [position, setPosition] = useState(null);
-
-//   function moveButton() {
-//     if (!noButton.current) {
-//       return;
-//     }
-//     var x = Math.random() * (window.innerWidth - noButton.current.offsetWidth);
-//     var y =
-//       Math.random() * (window.innerHeight - noButton.current.offsetHeight);
-//     setPosition({ x, y });
-//   }
-
-//   return (
-//     <div className="App">
-//       <h1>Hello CodeSandbox</h1>
-//       <h2>Start editing to see some magic happen!</h2>
-//       <div>
-//         <button id="yesButton">Yes!</button>
-//         <button
-//           id="noButton"
-//           style={
-//             position == null
-//               ? {}
-//               : {
-//                   position: "absolute",
-//                   left: `${position.x}px`,
-//                   top: `${position.y}px`,
-//                 }
-//           }
-//           ref={noButton}
-//           onMouseOver={moveButton}
-//           onClick={moveButton}
-//         >
-//           No...
-//         </button>
-//       </div>
-//     </div>
-//   );
-// }
