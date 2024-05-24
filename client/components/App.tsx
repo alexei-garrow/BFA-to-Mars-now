@@ -2,7 +2,7 @@
 import { getGreeting } from '../apiClient.ts'
 import { useQuery } from '@tanstack/react-query'
 import GenerateQuote from './GenerateQuote.tsx'
-import financebro from '../../Images/financebro.png'
+import financebro from '../../Images/financebrosef.png'
 
 //make this look sick!!!!!!!!!!!!!!!
 

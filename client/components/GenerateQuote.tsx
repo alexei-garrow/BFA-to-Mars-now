@@ -6,12 +6,12 @@ import {useRef} from 'react'
 const restartAnimation = (element) => {
 
 if(element){
-    element.classList.remove('css-typing');
+    element.classList.remove('typewriter');
 
     void element.offsetWidth
 
 
-    element.classList.add('css-typing')
+    element.classList.add('typewriter')
   }
   
 }
@@ -45,8 +45,10 @@ function GenerateRandomQuote() {
         <h2>Random Quote For You</h2>
        {randomQuote && ( 
            <> 
-           <div ref={typingRef} className='css-typing starwars'>
-             <p>{randomQuote.quoteText}</p>           
+           <div ref={typingRef} className='typewriter-wrapper starwars'>
+            <div className= 'typewriter bubble'>
+             <p >{randomQuote.quoteText}</p>  
+             </div>         
            </div>           
           </>
         )
