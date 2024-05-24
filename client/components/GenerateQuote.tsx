@@ -45,8 +45,8 @@ function GenerateRandomQuote() {
         <h2>Random Quote For You</h2>
        {randomQuote && ( 
            <> 
-           <div ref={typingRef} className='typewriter-wrapper starwars'>
-            <div className= 'typewriter bubble'>
+           <div className='typewriter-wrapper'>
+            <div ref={typingRef}  className= 'typewriter bubble'>
              <p >{randomQuote.quoteText}</p>  
              </div>         
            </div>           

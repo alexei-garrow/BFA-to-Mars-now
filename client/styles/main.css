@@ -183,7 +183,7 @@ body {
   justify-content: center;
 }
 
-.typewriter p {
+.typewriter>p {
   font-size: 0.5em;
   color: #000000;
   font-family: monospace;
