@@ -1,8 +1,20 @@
 import request from 'superagent'
 import { useQuery } from '@tanstack/react-query' 
 import { QuoteGenerator, Quote } from '../../client/models/test'
+import {useRef} from 'react'
+
+const restartAnimation = (element) => {
+
+if(element){
+    element.classList.remove('css-typing');
+
+    void element.offsetWidth
 
 
+    element.classList.add('css-typing')
+  }
+  
+}
 
 function GenerateRandomQuote() {
     return useQuery({
@@ -15,6 +27,7 @@ function GenerateRandomQuote() {
       
 }
  export default function GenerateQuote() {
+    const typingRef = useRef(null)
     const { data, isPending, isFetching, isError, error, refetch } =
     GenerateRandomQuote()
     const randomQuote: Quote | undefined = data?.data[0]
@@ -32,7 +45,7 @@ function GenerateRandomQuote() {
         <h2>Random Quote For You</h2>
        {randomQuote && ( 
            <> 
-           <div className='typewriter starwars'>
+           <div ref={typingRef} className='css-typing starwars'>
              <p>{randomQuote.quoteText}</p>           
            </div>           
           </>
@@ -40,7 +53,7 @@ function GenerateRandomQuote() {
         }     
         
         {isFetching && <p></p>}
-        <button onClick={() => refetch()}>Click Me! </button>
+        <button onClick={() => {refetch(); restartAnimation(typingRef.current)}}>Click Me! </button>
         </>
     )
  }

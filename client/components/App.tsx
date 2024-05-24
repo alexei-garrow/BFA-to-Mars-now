@@ -2,6 +2,7 @@
 import { getGreeting } from '../apiClient.ts'
 import { useQuery } from '@tanstack/react-query'
 import GenerateQuote from './GenerateQuote.tsx'
+import financebro from '../../Images/financebro.png'
 
 //make this look sick!!!!!!!!!!!!!!!
 
@@ -29,6 +30,9 @@ const App = () => {
       <button onClick={() => setCount(count + 1)}>Click</button>
       <div>
       <GenerateQuote />
+      </div>
+      <div>
+        <img src={financebro} alt='finance bro' />
       </div>
     </>
   )
