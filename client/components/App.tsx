@@ -1,6 +1,10 @@
 import { useState } from 'react'
 import GenerateQuote from './GenerateQuote.tsx'
+
+import financebro from '../../Images/financebrosef.png'
+
 import { useRef } from 'react'
+
 
 
 
@@ -45,6 +49,9 @@ const App = () => {
       </div>
       <div>
         <GenerateQuote />
+      </div>
+      <div>
+        <img src={financebro} alt='finance bro' />
       </div>
     </>
   )

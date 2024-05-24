@@ -1,9 +1,32 @@
+
+import request from 'superagent'
+import { useQuery } from '@tanstack/react-query' 
+import { QuoteGenerator, Quote } from '../../client/models/test'
+import {useRef} from 'react'
+
 // import request from 'superagent'
-import { useQuery } from '@tanstack/react-query'
 import { getGameOfThronesQuote } from '../apiClient.ts'
 
 
+const restartAnimation = (element) => {
 
+if(element){
+    element.classList.remove('typewriter');
+
+    void element.offsetWidth
+
+
+    element.classList.add('typewriter')
+  }
+  
+}
+
+
+ export default function GenerateQuote() {
+    const typingRef = useRef(null)
+    const { data, isPending, isFetching, isError, error, refetch } =
+    GenerateRandomQuote()
+    const randomQuote: Quote | undefined = data?.data[0]
 // function GenerateRandomQuote() {
 //     return useQuery({
 //         queryKey: ['quotes'],
@@ -18,7 +41,6 @@ import { getGameOfThronesQuote } from '../apiClient.ts'
 
 
 //Main idea create a randomiser function, which decides which api to call and display.
-
 
 
 export default function GenerateQuote() {
@@ -48,7 +70,6 @@ export default function GenerateQuote() {
 
             {isFetching && <p></p>}
             <button onClick={() => refetch()}>Click Me! </button>
-
         </>
 
     )
