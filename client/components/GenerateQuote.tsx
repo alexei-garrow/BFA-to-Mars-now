@@ -22,11 +22,11 @@ if(element){
 }
 
 
- export default function GenerateQuote() {
-    const typingRef = useRef(null)
-    const { data, isPending, isFetching, isError, error, refetch } =
-    GenerateRandomQuote()
-    const randomQuote: Quote | undefined = data?.data[0]
+//  export default function GenerateQuote() {
+//     const typingRef = useRef(null)
+//     const { data, isPending, isFetching, isError, error, refetch } =
+//     GenerateRandomQuote()
+//     const randomQuote: Quote | undefined = data?.data[0]
 // function GenerateRandomQuote() {
 //     return useQuery({
 //         queryKey: ['quotes'],
@@ -74,3 +74,4 @@ export default function GenerateQuote() {
 
     )
 }
+ 
